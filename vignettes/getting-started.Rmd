@@ -1,0 +1,99 @@
+---
+title: "getting-started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting-started}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(penguinExplorer)
+```
+
+### Introduction
+
+Welcome! to **penguinExplorer**, an R package developed for **ETC5523:
+Communicating with Data (Assignment 4)** by `Nishta Bollavaram`,
+`Monash University`. 
+This package demonstrates how to:
+- Build an R package that includes data and documentation 
+- Develop an interactive Shiny app to explore that data 
+- Create a pkgdown website for public documentation
+
+## Loading the Package
+To install and load the package from GitHub:
+
+```{r}
+install.packages("remotes")
+remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-nishtabollavaram")
+library(penguinExplorer)
+
+
+```
+
+## The penguins Dataset
+
+The package includes the **penguins** dataset (adapted from the Palmer Penguins dataset).
+It contains information on body measurements of penguins from three species across different islands.
+
+```{r, eval = FALSE}
+head(penguins)
+summary(penguins)
+
+
+```
+
+Variables include:
+**species** — Penguin species (Adelie, Gentoo, Chinstrap)
+**island** — Island where penguin was observed
+**sex** — Male or female
+**year** — Observation year
+**body_mass_g** — Body mass in grams
+
+## Launching the Shiny App
+
+```{r}
+
+run_app()
+
+
+```
+
+The interactive Shiny explorer allows you to:
+- Select a species
+- Choose numeric variables for X and Y axes
+- Compare male and female penguins visually
+- Download filtered data as a CSV
+
+**Using the App**
+The app has two tabs:
+**Explore** — Displays an interactive scatterplot and summary table
+**About** — Describes the dataset and app usage
+The plot updates automatically when you change inputs.
+
+**Summary Statistics**
+species-level summaries can also be viewed using base R functions:
+
+```{r, eval = FALSE}
+penguins |>
+dplyr::group_by(species) |>
+dplyr::summarise(across(where(is.numeric), mean, na.rm = TRUE))
+
+
+```
+
+**Closing Notes**
+
+This vignette provides an overview of the **penguinExplorer** package.
+It demonstrates good R package structure, reproducible documentation, and communication through interactivity.

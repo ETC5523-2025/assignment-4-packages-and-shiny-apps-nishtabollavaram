@@ -36,8 +36,7 @@ library(penguinExplorer)
 run_app()
 ```
 
-The interactive Shiny explorer allows you to: Select a specie, choose a numeric variables for X and Y axes, compare male and female penguins visually and download filtered data as a CSV.rmarkdown::render("README.Rmd")
-pkgdown::build_site()
+The interactive Shiny explorer allows you to: Select a specie, choose a numeric variables for X and Y axes, compare male and female penguins visually and download filtered data as a CSV.
 
 
 ```{r pressure, echo = FALSE}
