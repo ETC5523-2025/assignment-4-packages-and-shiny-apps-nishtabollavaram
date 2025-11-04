@@ -1,4 +1,10 @@
-url: ~
+url: https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-nishtabollavaram/
 template:
   bootstrap: 5
+build:
+  vignettes: false   # we’ll use the pre-rendered HTML in inst/doc
 
+articles:
+  - title: Getting started
+    contents:
+      - getting-started

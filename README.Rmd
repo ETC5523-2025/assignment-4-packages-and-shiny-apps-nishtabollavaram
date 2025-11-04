@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# penguineExplorer
+
+**ETC5523 – Assignment 4: Turning analysis interactive**
+`Author: Nishta Bollavaram`
+**penguineExplorer** ships a cleaned penguins dataset and a Shiny app to explore
+species differences across years. Everything is packaged (no read.csv inside
+the app), documented, and published via pkgdown.
+
+## Installation
+
+```{r}
+install.packages("remotes")
+remotes::install_github(
+  "ETC5523-2025/assignment-4-packages-and-shiny-apps-nishtabollavaram"
+)
+library(penguinExplorer)
+
+```
+
+## Launching the Shiny app
+
+```{r }
+run_app()
+```
+
+The interactive Shiny explorer allows you to: Select a specie, choose a numeric variables for X and Y axes, compare male and female penguins visually and download filtered data as a CSV.rmarkdown::render("README.Rmd")
+pkgdown::build_site()
+
+
+```{r pressure, echo = FALSE}
+head(penguins)
+
+```
+
+## Acknowledgements
+Data adapted from the palmerpenguins project.
