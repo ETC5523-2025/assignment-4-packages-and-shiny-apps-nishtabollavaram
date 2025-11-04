@@ -1,0 +1,24 @@
+Package: penguinExplorer
+Title: Explore Penguin Measurements with Shiny
+Version: 0.0.0.9000
+Authors@R: 
+    person("Nishta", "Bollavaram", role = c("aut", "cre"), email = "you@example.com")
+Description: R package providing the penguins dataset and an interactive Shiny explorer.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    shiny,
+    bslib,
+    ggplot2,
+    dplyr
+Suggests:
+    knitr,
+    rmarkdown,
+    pkgdown,
+    readr
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Depends: 
+    R (>= 3.5)
