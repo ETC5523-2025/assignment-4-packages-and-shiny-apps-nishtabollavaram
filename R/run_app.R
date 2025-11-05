@@ -1,7 +1,14 @@
-#' Launched the Shiny app
+#' Launch the Shiny App
 #'
-#' Opened the interactive Penguin Explorer included in this package.
-#' @return Invisibly returns the result of shiny::runApp().
+#' Opens the interactive **Penguin Explorer** included in this package.
+#'
+#' @details
+#' The Shiny app allows users to explore species-level differences in body
+#' measurements, filter observations by sex or island, and visualize patterns
+#' interactively. It demonstrates how to turn static analysis into an
+#' interactive, data-driven exploration.
+#'
+#' @return Invisibly returns the result of \code{shiny::runApp()}.
 #' @export
 run_app <- function() {
   pkg <- "penguinExplorer"

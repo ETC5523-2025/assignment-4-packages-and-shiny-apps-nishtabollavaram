@@ -5,7 +5,8 @@
 \alias{penguins}
 \title{Penguin Measurements Dataset}
 \format{
-A tibble with one row per penguin and eight columns.
+A tibble with 344 rows and 5 columns, each representing an individual
+penguin and its recorded attributes.
 }
 \source{
 Adapted from the \pkg{palmerpenguins} dataset.
@@ -14,20 +15,22 @@ Adapted from the \pkg{palmerpenguins} dataset.
 penguins
 }
 \description{
-A cleaned dataset of body measurements for penguins observed in the \strong{Palmer Archipelago}, Antarctica.
-It accompanies the \emph{penguinExplorer} package and is used in the interactive Shiny app.
+A cleaned dataset containing body measurements of penguins observed in the
+\strong{Palmer Archipelago}, Antarctica. It accompanies the \emph{penguinExplorer}
+package and is used within the interactive Shiny app for visual exploration.
 }
 \details{
-This dataset records morphological traits for three penguin species:
-Adelie, Chinstrap, and Gentoo. Each row represents one penguin observation.
+The dataset records morphological traits for three penguin species,
+Adelie, Chinstrap and Gentoo that are collected as part of field studies in the
+Palmer Archipelago. Each row represents one penguin observation.
 
 \strong{Variables}
 \itemize{
-\item \strong{species} — Species of penguin (Adelie, Chinstrap, Gentoo)
+\item \strong{species} — Species of penguin (\emph{Adelie}, \emph{Chinstrap}, \emph{Gentoo})
 \item \strong{island} — Island where the penguin was observed
 \item \strong{sex} — Male, Female, or Unknown
-\item \strong{year} — Year of observation
-\item \strong{body_mass_g} — Body mass (grams)
+\item \strong{year} — Observation year
+\item \strong{body_mass_g} — Body mass in grams
 }
 }
 \keyword{datasets}

@@ -2,13 +2,19 @@
 % Please edit documentation in R/run_app.R
 \name{run_app}
 \alias{run_app}
-\title{Launched the Shiny app}
+\title{Launch the Shiny App}
 \usage{
 run_app()
 }
 \value{
-Invisibly returns the result of shiny::runApp().
+Invisibly returns the result of \code{shiny::runApp()}.
 }
 \description{
-Opened the interactive Penguin Explorer included in this package.
+Opens the interactive \strong{Penguin Explorer} included in this package.
+}
+\details{
+The Shiny app allows users to explore species-level differences in body
+measurements, filter observations by sex or island, and visualize patterns
+interactively. It demonstrates how to turn static analysis into an
+interactive, data-driven exploration.
 }
