@@ -12,6 +12,10 @@ home:
   title: " Penguin Explorer"
   description: "Interactive exploration of the Palmer Penguins dataset"
 
+links:
+  text: "View the full package documentation"
+  href: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-nishtabollavaram/reference/
+
 navbar:
   structure:
     left: [home, reference, articles]
