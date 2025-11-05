@@ -1,10 +1,41 @@
 url: https://ETC5523-2025.github.io/assignment-4-packages-and-shiny-apps-nishtabollavaram/
+
 template:
   bootstrap: 5
+  bootswatch: flatly
+  bslib:
+    base_font: { google: "Open Sans" }
+    heading_font: { google: "Poppins" }
+    code_font: { google: "Fira Code" }
+
+home:
+  title: " Penguin Explorer"
+  description: "Interactive exploration of the Palmer Penguins dataset"
+
+navbar:
+  structure:
+    left: [home, reference, articles]
+    right: [search]
+  bg: primary
+  type: light
+  brand: "penguinExplorer"
+
+footer:
+  left: "Developed by **Nishta Bollavaram** · Monash University"
+  right: "Built with <a href='https://pkgdown.r-lib.org/'>pkgdown</a>"
+
+reference:
+  - title: "Shiny launcher"
+    contents:
+      - run_app
+  - title: "Dataset"
+    contents:
+      - penguins
+
 build:
-  vignettes: false   # we’ll use the pre-rendered HTML in inst/doc
+  vignettes: true
 
 articles:
-  - title: Getting started
+  - title: "Articles"
     contents:
-      - getting-started
+      - exploring-penguins

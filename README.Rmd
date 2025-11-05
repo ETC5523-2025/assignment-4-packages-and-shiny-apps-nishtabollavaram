@@ -7,42 +7,69 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  message = FALSE,
+  warning = FALSE
 )
 ```
 
-# penguineExplorer
+# Explore Penguin Measurements with Shiny
 
-**ETC5523 – Assignment 4: Turning analysis interactive**
-`Author: Nishta Bollavaram`
-**penguineExplorer** ships a cleaned penguins dataset and a Shiny app to explore
-species differences across years. Everything is packaged (no read.csv inside
-the app), documented, and published via pkgdown.
+**Author:** Nishta Bollavaram  
+**Unit:** ETC5523 — *Communicating with Data (Assignment 4)*  
+**University:** Monash University  
 
-## Installation
+---
+
+### Overview
+
+The **penguinExplorer** R package provides both data and interactivity for exploring the *Palmer Penguins* dataset.  
+It includes, a cleaned and well-documented `penguins` dataset, a Shiny app for interactive exploration and a full documentation and website built with **pkgdown**
+
+This project demonstrates the integration of data communication, documentation and interactivity in R, turning static analysis into an engaging exploratory experience.
+
+---
+
+### Installation
+
+To install and use the package directly from GitHub:
 
 ```{r}
-install.packages("remotes")
-remotes::install_github(
-  "ETC5523-2025/assignment-4-packages-and-shiny-apps-nishtabollavaram"
+install.packages("remotes", quiet = TRUE)
+suppressPackageStartupMessages(
+  remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-nishtabollavaram", quiet = TRUE)
 )
 library(penguinExplorer)
 
 ```
 
-## Launching the Shiny app
+## Launch the Shiny app
 
-```{r }
+Once installed, run the interactive app with:
+
+```{r run_app, eval=FALSE}
 run_app()
 ```
 
 The interactive Shiny explorer allows you to: Select a specie, choose a numeric variables for X and Y axes, compare male and female penguins visually and download filtered data as a CSV.
 
+## Dataset
 
-```{r pressure, echo = FALSE}
-head(penguins)
+The dataset contains information about body measurements for three species across the Palmer Archipelago, Antarctica.
+
+```{r}
+summary(penguins)
+
+
 
 ```
 
+Variables include:
+**species**, **island**, **sex**, **year**, **body_mass_g**	
+
 ## Acknowledgements
 Data adapted from the palmerpenguins project.
+Developed as part of the `ETC5523: Communicating with Data` unit at Monash University.
+
+## License
+This project is released under the **MIT License**.

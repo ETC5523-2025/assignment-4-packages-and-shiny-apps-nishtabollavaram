@@ -1,5 +1,5 @@
 ---
-title: "getting-started"
+title: "Exploring Penguins with penguinExplorer"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{getting-started}
@@ -25,8 +25,8 @@ clean_penguins <- penguins |>
 
 ### Introduction
 
-Welcome! to **penguineExplorer**, an R package developed for **ETC5523:Communicating with Data (Assignment 4)** by `Nishta Bollavaram`, `Monash University`. 
-This vignette demonstrates how to explore the penguins dataset included in the **penguineExplorer** package.
+Welcome! to **penguinExplorer**, an R package developed for **ETC5523:Communicating with Data (Assignment 4)** by `Nishta Bollavaram`, `Monash University`. 
+This vignette demonstrates how to explore the penguins dataset included in the **penguinExplorer** package.
 You can use the built-in **run_app()** function to launch an interactive Shiny app, or follow the examples below to visualize the data directly.
 
 ## The penguin Dataset

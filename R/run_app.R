@@ -4,7 +4,7 @@
 #' @return Invisibly returns the result of shiny::runApp().
 #' @export
 run_app <- function() {
-  pkg <- "penguinExplorer"  # <-- hardcode your package name to avoid NULL issues
+  pkg <- "penguinExplorer"
   app_dir <- system.file("app", package = pkg)
   if (app_dir == "" || !dir.exists(app_dir)) {
     stop("Could not find app directory. Ensure inst/app/app.R exists and reinstall the package.")

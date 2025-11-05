@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_app.R
 \name{run_app}
 \alias{run_app}
-\title{Launch the Shiny app}
+\title{Launched the Shiny app}
 \usage{
 run_app()
 }
@@ -10,5 +10,5 @@ run_app()
 Invisibly returns the result of shiny::runApp().
 }
 \description{
-Opens the interactive Penguin Explorer included in this package.
+Opened the interactive Penguin Explorer included in this package.
 }

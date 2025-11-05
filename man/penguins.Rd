@@ -3,27 +3,31 @@
 \docType{data}
 \name{penguins}
 \alias{penguins}
-\title{Penguin measurements dataset}
+\title{Penguin Measurements Dataset}
 \format{
-A data frame with the following columns:
-\describe{
-\item{species}{Species of penguin (Adelie, Chinstrap, Gentoo)}
-\item{island}{Island where the penguin was observed}
-\item{sex}{Male or Female}
-\item{year}{Observation year}
-\item{flipper_length_mm}{Flipper length (millimetres)}
-\item{body_mass_g}{Body mass (grams)}
-\item{bill_length_mm}{Bill length (millimetres)}
-\item{bill_depth_mm}{Bill depth (millimetres)}
-}
+A tibble with one row per penguin and eight columns.
 }
 \source{
-Adapted from the palmerpenguins dataset
+Adapted from the \pkg{palmerpenguins} dataset.
 }
 \usage{
 penguins
 }
 \description{
-This dataset contains body measurements for penguins observed in the Palmer Archipelago.
+A cleaned dataset of body measurements for penguins observed in the \strong{Palmer Archipelago}, Antarctica.
+It accompanies the \emph{penguinExplorer} package and is used in the interactive Shiny app.
+}
+\details{
+This dataset records morphological traits for three penguin species:
+Adelie, Chinstrap, and Gentoo. Each row represents one penguin observation.
+
+\strong{Variables}
+\itemize{
+\item \strong{species} — Species of penguin (Adelie, Chinstrap, Gentoo)
+\item \strong{island} — Island where the penguin was observed
+\item \strong{sex} — Male, Female, or Unknown
+\item \strong{year} — Year of observation
+\item \strong{body_mass_g} — Body mass (grams)
+}
 }
 \keyword{datasets}
