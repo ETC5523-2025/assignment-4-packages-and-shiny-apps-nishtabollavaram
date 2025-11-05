@@ -81,3 +81,7 @@ Data adapted from the palmerpenguins project. Developed as part of the
 ## License
 
 This project is released under the **MIT License**.
+
+## 📘 Package Website
+You can explore the full documentation here: <https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-nishtabollavaram/>
+
