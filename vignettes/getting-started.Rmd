@@ -10,90 +10,123 @@ editor_options:
     wrap: 72
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
-```{r setup}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 library(penguinExplorer)
+library(ggplot2)
+library(dplyr)
+
+clean_penguins <- penguins |>
+  filter(!is.na(sex), sex != "Unknown") |>
+  droplevels()
+
+
 ```
 
 ### Introduction
 
-Welcome! to **penguinExplorer**, an R package developed for **ETC5523:
-Communicating with Data (Assignment 4)** by `Nishta Bollavaram`,
-`Monash University`. 
-This package demonstrates how to:
-- Build an R package that includes data and documentation 
-- Develop an interactive Shiny app to explore that data 
-- Create a pkgdown website for public documentation
+Welcome! to **penguineExplorer**, an R package developed for **ETC5523:Communicating with Data (Assignment 4)** by `Nishta Bollavaram`, `Monash University`. 
+This vignette demonstrates how to explore the penguins dataset included in the **penguineExplorer** package.
+You can use the built-in **run_app()** function to launch an interactive Shiny app, or follow the examples below to visualize the data directly.
 
-## Loading the Package
-To install and load the package from GitHub:
-
-```{r}
-install.packages("remotes")
-remotes::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-nishtabollavaram")
-library(penguinExplorer)
-
-
-```
-
-## The penguins Dataset
+## The penguin Dataset
 
 The package includes the **penguins** dataset (adapted from the Palmer Penguins dataset).
 It contains information on body measurements of penguins from three species across different islands.
 
 ```{r, eval = FALSE}
+data("penguins")
 head(penguins)
-summary(penguins)
-
 
 ```
 
 Variables include:
-**species** — Penguin species (Adelie, Gentoo, Chinstrap)
-**island** — Island where penguin was observed
-**sex** — Male or female
-**year** — Observation year
-**body_mass_g** — Body mass in grams
+**species**, **island**, **sex** **year** and **body_mass_g** 
 
-## Launching the Shiny App
+## Plot 1: Body Mass by Year (coloured by sex)
 
-```{r}
+```{r plot1, eval=TRUE}
+ggplot(clean_penguins, aes(x = year, y = body_mass_g, colour = sex)) +
+  geom_point(alpha = 0.7) +
+  scale_x_continuous(breaks = unique(clean_penguins$year)) +
+  labs(x = "Year", y = "Body Mass (g)", colour = "Sex") +
+  theme_minimal()
 
+
+```
+
+**Observation:**
+The scatter plot shows that body mass remains relatively consistent across the years for all penguins, with males generally being heavier than females. This difference is most noticeable in certain years where clear clustering by sex can be seen. There are no significant outliers once unknown or missing values were removed.
+
+## Plot 2: Body Mass by Species
+
+```{r plot2, eval=TRUE}
+
+ggplot(clean_penguins, aes(x = species, y = body_mass_g, fill = sex)) +
+geom_boxplot(outlier.alpha = 0.4) +
+labs(x = "Species", y = "Body Mass (g)", fill = "Sex") +
+theme_minimal()
+
+
+```
+
+**Observation:**
+This boxplot highlights clear differences between penguin species. Gentoo penguins are the heaviest on average, while Adelie penguins are the lightest. In all species, males tend to have higher body mass than females, reflecting sexual dimorphism. The spread is moderate, suggesting consistent body measurements within each species.
+
+## Plot 3: Trend of Mean Body Mass by Year & Species
+
+```{r plot3, eval=TRUE}
+
+clean_penguins |>
+group_by(species, year) |>
+summarise(mean_mass = mean(body_mass_g, na.rm = TRUE)) |>
+ggplot(aes(x = year, y = mean_mass, colour = species)) +
+geom_line() +
+geom_point() +
+labs(x = "Year", y = "Mean Body Mass (g)", colour = "Species") +
+theme_minimal()
+
+
+```
+
+**Observation:**
+The trend lines show that average body mass is stable across years for all species. Gentoo penguins consistently record the highest mean body mass, followed by Chinstrap and Adelie. The absence of major fluctuations suggests steady environmental or feeding conditions during the observed period.
+
+## Plot 4: Faceted View by Species
+
+```{r plot4, eval=TRUE}
+
+ggplot(clean_penguins, aes(x = year, y = body_mass_g, colour = sex)) +
+geom_point(alpha = 0.7) +
+facet_wrap(~ species) +
+labs(x = "Year", y = "Body Mass (g)", colour = "Sex") +
+theme_minimal()
+
+
+```
+
+**Observation:**
+By faceting the data, we can see species-specific patterns more clearly. Each species shows consistent male–female differences in body mass. Gentoo penguins show the largest gap between sexes, while Adelie penguins have more overlap. The overall stability across years is again confirmed visually.
+
+## Launching the Shiny app:
+
+The interactive Shiny app extends this exploration by letting users filter, compare and visualise data dynamically.  
+
+```{r runapp, eval=FALSE}
 run_app()
 
-
 ```
 
-The interactive Shiny explorer allows you to:
-- Select a species
-- Choose numeric variables for X and Y axes
-- Compare male and female penguins visually
-- Download filtered data as a CSV
+The interactive Shiny explorer allows you to: select a species, choose numeric variables for X and Y axes, compare male and female penguins visually and download filtered data as a CSV.
 
 **Using the App**
-The app has two tabs:
-**Explore** — Displays an interactive scatterplot and summary table
-**About** — Describes the dataset and app usage
-The plot updates automatically when you change inputs.
-
-**Summary Statistics**
-species-level summaries can also be viewed using base R functions:
-
-```{r, eval = FALSE}
-penguins |>
-dplyr::group_by(species) |>
-dplyr::summarise(across(where(is.numeric), mean, na.rm = TRUE))
+The app has two tabs: **Explore** which displays an interactive scatterplot and summary table, **About** which describes the dataset and app usage. Lastly, the plot updates automatically when the inputs are changed.
 
 
-```
+### Conclusion
 
-**Closing Notes**
+Through these simple yet insightful visualisations, we observe consistent biological patterns among the penguin species where,  
+**Gentoo** penguins stand out as the largest, males consistently outweigh females and body mass remains relatively stable across the study period.  
+The interactive Shiny app (`run_app()`) extends this exploration by letting users filter, compare, and visualise data dynamically.  
+Together, the package and its app offer an intuitive, reproducible, and engaging way to understand the Palmer Penguins dataset — a clean example of **communicating data interactively**.
 
-This vignette provides an overview of the **penguinExplorer** package.
-It demonstrates good R package structure, reproducible documentation, and communication through interactivity.
